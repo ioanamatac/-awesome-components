@@ -6,7 +6,7 @@
     <mat-icon>send</mat-icon>
   </button>
 </div>
-<mat-list *ngIf="comments.length">
+<mat-list *ngIf="comments.length"@list>
   <h2 matSubheader>Comments</h2> 
   <!--dire au trigger ds quel état il se trouve en lui attribuant une variable--> 
   <mat-list-item *ngFor="let comment of comments; let i = index"   
@@ -14,8 +14,9 @@
                   (mouseenter) = "onListItemMouseEnter(i)"
                   (mouseleave) = "onListItemMouseLeave(i)"
   >
-    <span mat-line>{{ comment.comment }}</span>
-    <span mat-line>{{ comment.createdDate | timeAgo
+  <!--cibler separement les elements avec en utilisant des classes-->
+    <span class="comment-text" mat-line>{{ comment.comment }}</span>
+    <span class="comment-text" mat-line>{{ comment.createdDate | timeAgo
         }}</span>
   </mat-list-item>
 </mat-list>
