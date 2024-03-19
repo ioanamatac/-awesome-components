@@ -12,8 +12,7 @@ export class HighlightDirective implements AfterViewInit {
     constructor(private el: ElementRef,
                 private renderer: Renderer2) {}
 
-    //Renderer2  est un outil qui permet d'interagir avec le DOM 
-    //(écrire des tests unitaires)
+    //Renderer2  est un outil qui permet d'interagir avec le DOM (écrire des tests unitaires)
     ngAfterViewInit() {
         this.setBackgroundColor(this.color);
     }            
@@ -28,8 +27,7 @@ export class HighlightDirective implements AfterViewInit {
     @HostListener('mouseleave') onMouseLeave(){
         this.setBackgroundColor(this.color);
     }
-    //Une Directive peut écouter les événements émanant de son élément 
-    //grâce au décorateur  @HostListener
+    //Une Directive peut écouter les événements émanant de son élément grâce au décorateur  @HostListener
     @HostListener('click') onClick(){
         this.color = 'lightgreen';
     }
